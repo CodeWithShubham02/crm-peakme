@@ -4,13 +4,16 @@ import '../models/dashboard_model.dart';
 
 class DashboardController {
   Future<DashboardResponse?> fetchDashboard(String branchId) async {
+    print("-------------");
+    print(branchId);
     try {
       final response = await http.get(
         Uri.parse(
           "https://fms.bizipac.com/apinew/display/mob_health_dashboard.php?branch_id=$branchId",
         ),
       );
-
+      print("---------------------");
+      print(response);
       final jsonData = jsonDecode(response.body);
       print("---------------------------------");
       print("---------------json------------------");
